@@ -1,8 +1,12 @@
 // DO WHATEVER YOU WANT HERE
 
-const createEnumerableProperty = () => {};
-const createNotEnumerableProperty = () => {};
-const createProtoMagicObject = () => {};
+const createEnumerableProperty = (propertyName) => propertyName; //by default enumerable
+const createNotEnumerableProperty = (propertyName) => Symbol(propertyName); //Symbol is non-enumarable,property is anonymous
+const createProtoMagicObject = function()  {
+    var obj = new Function(); //creating Function because function is object but with typeof Function
+    obj.prototype = Function.prototype;
+    return obj;
+};
 const incrementor = () => {};
 const asyncIncrementor = () => {};
 const createIncrementer = () => {};
